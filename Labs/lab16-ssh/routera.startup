@@ -1,0 +1,4 @@
+ifconfig eth0 192.168.100.254/24 up
+ifconfig eth1 1.1.1.1/24 up
+
+route add -net default gw 1.1.1.2

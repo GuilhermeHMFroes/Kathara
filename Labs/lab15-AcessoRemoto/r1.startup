@@ -1,0 +1,4 @@
+ifconfig eth0 50.0.0.2/30 up
+ifconfig eth1 192.168.100.254/24 up
+
+route add -net default gw 50.0.0.1
