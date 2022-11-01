@@ -1,0 +1,10 @@
+ifconfig eth0 192.168.0.1/24 up
+ifconfig eth1 70.0.0.1/24 up
+
+/etc/init.d/isc-dhcp-server start
+
+route add default gw 70.0.0.2
+
+iptables -t nat -A POSTROUTING -o eth1 -j MASQUERADE
+iptables -t nat -A PREROUTING -i eth1 -p tcp --dport 50 -j DNAT --to 192.168.0.2:22
+iptables -t nat -A PREROUTING -i eth1 -p tcp --dport 80 -j DNAT --to 192.168.0.2:80

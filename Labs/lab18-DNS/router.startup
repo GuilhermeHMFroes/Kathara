@@ -1,0 +1,4 @@
+ifconfig eth0 172.16.10.254/24
+
+/etc/init.d/isc-dhcp-server start
+/etc/init.d/bind restart
